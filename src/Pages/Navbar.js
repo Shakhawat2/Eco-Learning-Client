@@ -5,7 +5,7 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className="sticky top-0 left-0 right-0 px-4 py-5 mx-auto bg-white sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
+        <div className="z-10 sticky top-0 left-0 right-0 px-4 py-5 mx-auto bg-white sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
                 <Link
                     to="/"
@@ -75,7 +75,9 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                 </ul>
-                <ul className="flex items-center hidden space-x-8 lg:flex">
+                <ul className="flex items-center hidden space-x-4 lg:flex">
+                    <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li>
+
                     <li className=''>
                         <Link
                             to="/login"
@@ -101,7 +103,6 @@ const Navbar = () => {
                                     </a>
                                 </li>
                                 <li><a>Settings</a></li>
-                                <li><input type="checkbox" className="toggle" defaultChecked /></li>
                                 <li><a>Logout</a></li>
                             </ul>
                         </div>
@@ -179,54 +180,75 @@ const Navbar = () => {
                                 <nav>
                                     <ul className="space-y-4">
                                         <li>
-                                            <a
-                                                href="/"
-                                                aria-label="Our product"
-                                                title="Our product"
-                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            <NavLink
+                                                to="/home"
+                                                aria-label="Home"
+                                                title="Home"
+                                                className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
                                             >
-                                                Product
-                                            </a>
+                                                Home
+                                            </NavLink>
                                         </li>
                                         <li>
-                                            <a
-                                                href="/"
-                                                aria-label="Our product"
-                                                title="Our product"
-                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            <NavLink
+                                                to="/courses"
+                                                aria-label="Courses"
+                                                title="Courses"
+                                                className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
                                             >
-                                                Features
-                                            </a>
+                                                Courses
+                                            </NavLink>
                                         </li>
                                         <li>
-                                            <a
-                                                href="/"
-                                                aria-label="Product pricing"
-                                                title="Product pricing"
-                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            <NavLink
+                                                to="/faq"
+                                                aria-label="FAQ"
+                                                title="FAQ"
+                                                className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
                                             >
-                                                Pricing
-                                            </a>
+                                                FAQ
+                                            </NavLink>
                                         </li>
                                         <li>
-                                            <a
-                                                href="/"
-                                                aria-label="About us"
-                                                title="About us"
-                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            <NavLink
+                                                to="/blog"
+                                                aria-label="Blog"
+                                                title="Blog"
+                                                className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
                                             >
-                                                About us
-                                            </a>
+                                                Blog
+                                            </NavLink>
                                         </li>
-                                        <li>
-                                            <a
-                                                href="/"
-                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                        <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li>
+
+                                        <li className=''>
+                                            <Link
+                                                to="/login"
+                                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn btn-secondary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                                 aria-label="Sign up"
                                                 title="Sign up"
                                             >
-                                                Sign up
-                                            </a>
+                                                Log In
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <div className="dropdown dropdown-end">
+                                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                                    <div className="w-10 rounded-full">
+                                                        <img src="https://placeimg.com/80/80/people" title='shohug' />
+                                                    </div>
+                                                </label>
+                                                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                                    <li>
+                                                        <a className="justify-between">
+                                                            Profile
+                                                            <span className="badge">New</span>
+                                                        </a>
+                                                    </li>
+                                                    <li><a>Settings</a></li>
+                                                    <li><a>Logout</a></li>
+                                                </ul>
+                                            </div>
                                         </li>
                                     </ul>
                                 </nav>
