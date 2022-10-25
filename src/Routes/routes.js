@@ -4,6 +4,8 @@ import Course from "../Pages/Course";
 import ErrorPage from "../Pages/ErrorPage";
 import Faq from "../Pages/Faq";
 import Home from "../Pages/Home";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -32,6 +34,14 @@ export const routes = createBrowserRouter([
             {
                 path : 'faq',
                 element : <Faq></Faq>
+            },
+            {
+                path : 'login',
+                element : <Login></Login>
+            },
+            {
+                path : 'register',
+                element : <Register></Register>
             },
         ] 
     }

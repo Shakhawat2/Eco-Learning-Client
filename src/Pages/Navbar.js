@@ -5,7 +5,7 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className="px-4 py-5 mx-auto bg-white sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
+        <div className="sticky top-0 left-0 right-0 px-4 py-5 mx-auto bg-white sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
                 <Link
                     to="/"
@@ -77,14 +77,14 @@ const Navbar = () => {
                 </ul>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
                     <li className=''>
-                        <a
-                            href="/"
+                        <Link
+                            to="/login"
                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn btn-secondary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                             aria-label="Sign up"
                             title="Sign up"
                         >
                             Log In
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <div className="dropdown dropdown-end">
@@ -101,7 +101,7 @@ const Navbar = () => {
                                     </a>
                                 </li>
                                 <li><a>Settings</a></li>
-                                <li><input type="checkbox" className="toggle" checked /></li>
+                                <li><input type="checkbox" className="toggle" defaultChecked /></li>
                                 <li><a>Logout</a></li>
                             </ul>
                         </div>
