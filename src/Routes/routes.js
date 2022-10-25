@@ -1,4 +1,5 @@
 import Root from "../MainLayout/Root";
+import Course from "../Pages/Course";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home";
 
@@ -17,6 +18,10 @@ export const routes = createBrowserRouter([
             {
                 path : 'home',
                 element : <Home></Home>
+            },
+            {
+                path : 'courses',
+                element : <Course></Course>
             },
         ] 
     }

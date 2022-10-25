@@ -38,40 +38,40 @@ const Navbar = () => {
                             to="/home"
                             aria-label="Home"
                             title="Home"
-                            className={({isActive}) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	": "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
+                            className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
                         >
                             Home
                         </NavLink>
                     </li>
                     <li>
-                        <a
-                            href="/"
-                            aria-label="Our product"
-                            title="Our product"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        <NavLink
+                            to="/courses"
+                            aria-label="Courses"
+                            title="Courses"
+                            className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
                         >
-                            Features
-                        </a>
+                            Courses
+                        </NavLink>
                     </li>
                     <li>
-                        <a
-                            href="/"
-                            aria-label="Product pricing"
-                            title="Product pricing"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        <NavLink
+                            to="/faq"
+                            aria-label="FAQ"
+                            title="FAQ"
+                            className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
                         >
-                            Pricing
-                        </a>
+                            FAQ
+                        </NavLink>
                     </li>
                     <li>
-                        <a
-                            href="/"
-                            aria-label="About us"
-                            title="About us"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        <NavLink
+                            to="/blog"
+                            aria-label="Blog"
+                            title="Blog"
+                            className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-700 transition-colors duration-200 text-blue-600 underline decoration-blue-500 decoration-solid decoration-4 underline-offset-4	" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-600"}
                         >
-                            About us
-                        </a>
+                            Blog
+                        </NavLink>
                     </li>
                 </ul>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -82,7 +82,7 @@ const Navbar = () => {
                             aria-label="Sign up"
                             title="Sign up"
                         >
-                           Log In
+                            Log In
                         </a>
                     </li>
                 </ul>
