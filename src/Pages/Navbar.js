@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,14 +7,14 @@ const Navbar = () => {
     return (
         <div className="px-4 py-5 mx-auto bg-white sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
-                <a
-                    href="/"
+                <Link
+                    to="/"
                     aria-label="Company"
                     title="Company"
                     className="inline-flex items-center"
                 >
                     <svg
-                        className="w-8 text-deep-purple-accent-400"
+                        className="w-8 text-deep-purple-accent-400 hidden"
                         viewBox="0 0 24 24"
                         strokeLinejoin="round"
                         strokeWidth="2"
@@ -28,10 +28,11 @@ const Navbar = () => {
                         <rect x="14" y="1" width="7" height="6" />
                         <rect x="14" y="11" width="7" height="12" />
                     </svg>
+                    <img src="https://www.pngmart.com/files/11/Computer-Engineer-Transparent-PNG.png" alt="" className='h-10' />
                     <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Company
+                        Computer Hope
                     </span>
-                </a>
+                </Link>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
                     <li>
                         <NavLink
@@ -75,7 +76,7 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
-                    <li>
+                    <li className=''>
                         <a
                             href="/"
                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn btn-secondary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -84,6 +85,26 @@ const Navbar = () => {
                         >
                             Log In
                         </a>
+                    </li>
+                    <li>
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src="https://placeimg.com/80/80/people" title='shohug' />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                <li>
+                                    <a className="justify-between">
+                                        Profile
+                                        <span className="badge">New</span>
+                                    </a>
+                                </li>
+                                <li><a>Settings</a></li>
+                                <li><input type="checkbox" className="toggle" checked /></li>
+                                <li><a>Logout</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
                 <div className="lg:hidden">
