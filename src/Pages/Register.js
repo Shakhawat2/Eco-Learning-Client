@@ -8,7 +8,10 @@ const Register = () => {
         const form = e.target;
         const name = form.username.value;
         const photo = form.photo.value;
-        
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name , photo, email, password);
+
     }
     return (
         <div className="my-10 w-full mx-auto max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
