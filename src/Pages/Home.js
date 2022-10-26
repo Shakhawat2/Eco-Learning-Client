@@ -8,12 +8,12 @@ const Home = () => {
         <section className="dark:bg-white dark:text-gray-100">
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
                 <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-                    <h1 className="text-5xl font-bold leading-none sm:text-6xl dark:text-purple-800">Computer <br />
-                        Science Lesson
+                    <h1 className="text-5xl font-bold leading-none sm:text-6xl dark:text-purple-800">Web <br />
+                        Development Lesson
                     </h1>
                     <p className="mt-6 mb-8 text-black text-xl font-medium  sm:mb-12"><small>
-                        Computer Science is the study of computers and computational systems.
-                        <br className="hidden md:inline lg:hidden" />Unlike electrical and computer engineers, computer scientists deal mostly with software and software systems; this includes their theory, design, development, and application.
+                    Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet (a private network).
+                        <br className="hidden md:inline lg:hidden" />Web development can range from developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services. A more comprehensive list of tasks to which Web development commonly refers
                     </small>
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">

@@ -9,7 +9,7 @@ const Features = () => {
                     <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                         <span className="text-xs uppercase dark:text-gray-400">Join, it's free</span>
                         <h3 className="text-3xl font-bold">We're not reinventing the wheel</h3>
-                        <p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+                        <p className="my-6 dark:text-gray-400">Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet</p>
                         <button type="button" className="self-start">Action</button>
                     </div>
                 </div>
@@ -18,7 +18,7 @@ const Features = () => {
                     <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                         <span className="text-xs uppercase dark:text-gray-400">Join, it's free</span>
                         <h3 className="text-3xl font-bold">We're not reinventing the wheel</h3>
-                        <p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+                        <p className="my-6 dark:text-gray-400">Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet</p>
                         <button type="button" className="self-start">Action</button>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ const Features = () => {
                     <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                         <span className="text-xs uppercase dark:text-gray-400">Join, it's free</span>
                         <h3 className="text-3xl font-bold">We're not reinventing the wheel</h3>
-                        <p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+                        <p className="my-6 dark:text-gray-400">Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet</p>
                         <button type="button" className="self-start">Action</button>
                     </div>
                 </div>

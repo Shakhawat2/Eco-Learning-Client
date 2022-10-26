@@ -8,7 +8,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     return (
-        <div className="z-10 sticky top-0 left-0 right-0 px-4 py-5 mx-auto bg-white sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
+        <div className="z-10 sticky top-0 left-0 right-0 px-4 py-5 mx-auto bg-white sm:max-w-full md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
                 <Link
                     to="/"
@@ -33,7 +33,7 @@ const Navbar = () => {
                     </svg>
                     <img src="https://www.pngmart.com/files/11/Computer-Engineer-Transparent-PNG.png" alt="" className='h-10' />
                     <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Learn Web Develop
+                        Learn Web Development
                     </span>
                 </Link>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -79,8 +79,16 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <ul className="flex items-center hidden space-x-4 lg:flex">
-                    <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li>
-
+                    {/* <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li> */}
+                    <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                        {/* <span className='text-black'>White Mode</span> */}
+                        <span className="relative">
+                            <input id="Toggle1" type="checkbox" className="hidden peer" />
+                            <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-black"></div>
+                            <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                        </span>
+                        {/* <span className='text-black'>Dark Mode</span> */}
+                    </label>
                     {
                         user && user.uid
                             ?
@@ -88,7 +96,7 @@ const Navbar = () => {
                                 <div className="dropdown dropdown-end">
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
-                                            <img src="https://placeimg.com/80/80/people" title={user?.displayName} />
+                                            <img src={user?.photoURL ? user?.photoURL : "https://www.seekpng.com/png/detail/966-9665493_my-profile-icon-blank-profile-image-circle.png"} title={user?.displayName ? user?.displayName : 'No name Found'} />
                                         </div>
                                     </label>
                                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
@@ -144,14 +152,14 @@ const Navbar = () => {
                             <div className="p-5 bg-white border rounded shadow-sm">
                                 <div className="flex items-center justify-between mb-4">
                                     <div>
-                                        <a
-                                            href="/"
+                                        <Link
+                                            to="/"
                                             aria-label="Company"
                                             title="Company"
                                             className="inline-flex items-center"
                                         >
                                             <svg
-                                                className="w-8 text-deep-purple-accent-400"
+                                                className="w-8 text-deep-purple-accent-400 hidden"
                                                 viewBox="0 0 24 24"
                                                 strokeLinejoin="round"
                                                 strokeWidth="2"
@@ -165,10 +173,11 @@ const Navbar = () => {
                                                 <rect x="14" y="1" width="7" height="6" />
                                                 <rect x="14" y="11" width="7" height="12" />
                                             </svg>
+                                            <img src="https://www.pngmart.com/files/11/Computer-Engineer-Transparent-PNG.png" alt="" className='h-10' />
                                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                Company
+                                                Learn Web Development
                                             </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div>
                                         <button
@@ -228,8 +237,7 @@ const Navbar = () => {
                                                 Blog
                                             </NavLink>
                                         </li>
-                                        <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li>
-
+                                        {/* <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li>
                                         <li className=''>
                                             <Link
                                                 to="/login"
@@ -258,7 +266,52 @@ const Navbar = () => {
                                                     <button onClick={() => logOut(navigate)}><li>Logout</li></button>
                                                 </ul>
                                             </div>
-                                        </li>
+                                        </li> */}
+                                        <ul className="flex items-center justify-between">
+                                            {/* <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li> */}
+                                            <label for="Toggle1" className="cursor-pointer dark:text-gray-100">
+                                                <span className="relative">
+                                                    <input id="Toggle1" type="checkbox" className="hidden peer" />
+                                                    <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-black"></div>
+                                                    <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                                                </span>
+                                            </label>
+                                            {
+                                                user && user.uid
+                                                    ?
+                                                    <li>
+                                                        <div className="dropdown dropdown-end">
+                                                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                                                <div className="w-10 rounded-full">
+                                                                    <img src={user?.photoURL ? user?.photoURL : "https://www.seekpng.com/png/detail/966-9665493_my-profile-icon-blank-profile-image-circle.png"} title={user?.displayName ? user?.displayName : 'No name Found'} />
+                                                                </div>
+                                                            </label>
+                                                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                                                <li>
+                                                                    <a className="justify-between">
+                                                                        Profile
+                                                                        <span className="badge">New</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li><a>Settings</a></li>
+                                                                <button onClick={() => logOut(navigate)}><li><a>Logout</a></li></button>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    :
+                                                    <li className=''>
+                                                        <Link
+                                                            to="/login"
+                                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn btn-secondary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                            aria-label="Sign up"
+                                                            title="Sign up"
+                                                        >
+                                                            Log In
+                                                        </Link>
+                                                    </li>
+                                            }
+
+                                        </ul>
                                     </ul>
                                 </nav>
                             </div>

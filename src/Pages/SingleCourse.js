@@ -40,7 +40,7 @@ const SingleCourse = () => {
                     <p className='text-white'>{description}</p>
                 </div>
                 <div className="space-y-6">
-                    <Link to="/checkout">
+                    <Link to={`/checkout/${id}`}>
                         <button className='btn btn-secondary'>Get Premium Access</button>
                     </Link>
                 </div>
