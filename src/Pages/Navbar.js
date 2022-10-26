@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Contexts/UserContext';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
     return (
         <div className="z-10 sticky top-0 left-0 right-0 px-4 py-5 mx-auto bg-white sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
@@ -30,7 +33,7 @@ const Navbar = () => {
                     </svg>
                     <img src="https://www.pngmart.com/files/11/Computer-Engineer-Transparent-PNG.png" alt="" className='h-10' />
                     <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Computer Hope
+                        Learn Web Develop
                     </span>
                 </Link>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -78,35 +81,41 @@ const Navbar = () => {
                 <ul className="flex items-center hidden space-x-4 lg:flex">
                     <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li>
 
-                    <li className=''>
-                        <Link
-                            to="/login"
-                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn btn-secondary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
-                        >
-                            Log In
-                        </Link>
-                    </li>
-                    <li>
-                        <div className="dropdown dropdown-end">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src="https://placeimg.com/80/80/people" title='shohug' />
+                    {
+                        user && user.uid
+                            ?
+                            <li>
+                                <div className="dropdown dropdown-end">
+                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src="https://placeimg.com/80/80/people" title={user?.displayName} />
+                                        </div>
+                                    </label>
+                                    <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                        <li>
+                                            <a className="justify-between">
+                                                Profile
+                                                <span className="badge">New</span>
+                                            </a>
+                                        </li>
+                                        <li><a>Settings</a></li>
+                                        <button onClick={() => logOut(navigate)}><li><a>Logout</a></li></button>
+                                    </ul>
                                 </div>
-                            </label>
-                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                                <li>
-                                    <a className="justify-between">
-                                        Profile
-                                        <span className="badge">New</span>
-                                    </a>
-                                </li>
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                            </li>
+                            :
+                            <li className=''>
+                                <Link
+                                    to="/login"
+                                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn btn-secondary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                    aria-label="Sign up"
+                                    title="Sign up"
+                                >
+                                    Log In
+                                </Link>
+                            </li>
+                    }
+
                 </ul>
                 <div className="lg:hidden">
                     <button
@@ -235,7 +244,7 @@ const Navbar = () => {
                                             <div className="dropdown dropdown-end">
                                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                     <div className="w-10 rounded-full">
-                                                        <img src="https://placeimg.com/80/80/people" title='shohug' />
+                                                        <img src="https://placeimg.com/80/80/people" title={user?.displayName} />
                                                     </div>
                                                 </label>
                                                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
@@ -246,7 +255,7 @@ const Navbar = () => {
                                                         </a>
                                                     </li>
                                                     <li><a>Settings</a></li>
-                                                    <li><a>Logout</a></li>
+                                                    <button onClick={() => logOut(navigate)}><li>Logout</li></button>
                                                 </ul>
                                             </div>
                                         </li>

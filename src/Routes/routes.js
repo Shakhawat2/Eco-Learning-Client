@@ -6,6 +6,7 @@ import Faq from "../Pages/Faq";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import SingleCourse from "../Pages/SingleCourse";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -25,6 +26,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path : 'courses',
+                loader : () => fetch('http://localhost:5000/all-courses'),
                 element : <Course></Course>
             },
             {
@@ -42,6 +44,10 @@ export const routes = createBrowserRouter([
             {
                 path : 'register',
                 element : <Register></Register>
+            },
+            {
+                path : '/course/:id',
+                element : <SingleCourse></SingleCourse>
             },
         ] 
     }
