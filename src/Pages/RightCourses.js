@@ -16,7 +16,7 @@ const RightCourses = () => {
                         <p></p>
                         <div className="card-actions justify-end">
                             <Link to={`/course/${course?.id}`}>
-                            <button className="btn btn-primary">Get Premium Access</button>
+                            <button className="btn btn-primary">About {course?.name}</button>
                             </Link>
                         </div>
                     </div>

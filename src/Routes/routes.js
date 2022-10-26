@@ -1,5 +1,6 @@
 import Root from "../MainLayout/Root";
 import Blog from "../Pages/Blog";
+import CheckOutPage from "../Pages/CheckOutPage";
 import Course from "../Pages/Course";
 import ErrorPage from "../Pages/ErrorPage";
 import Faq from "../Pages/Faq";
@@ -48,8 +49,13 @@ export const routes = createBrowserRouter([
             },
             {
                 path : '/course/:id',
-                element : <PrivateRoute><SingleCourse></SingleCourse></PrivateRoute>
+                loader : ({params}) => fetch(`http://localhost:5000/course/${params.id}`),
+                element : <SingleCourse></SingleCourse>
             },
+            {
+                path : "checkout",
+                element : <PrivateRoute><CheckOutPage></CheckOutPage></PrivateRoute>
+            }
         ] 
     }
 ])
