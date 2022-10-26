@@ -15,13 +15,16 @@ const githubProvider = new GithubAuthProvider();
 const UserContext = ({ children }) => {
     const [user, setUser] = useState(null);
     const [course, setCourse] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     //01. Create account with email and password
     const createAccount = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
     //02. update Profile 
     const updateUser = (name, photo) => {
+        setLoading(true)
         return updateProfile(auth.currentUser, {
             displayName: name, photoURL: photo
         }).then(() => {
@@ -33,12 +36,14 @@ const UserContext = ({ children }) => {
 
     //03. Sign in with email and password 
     const Login = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     //04. Log Out
 
     const logOut = (navigate) => {
+        setLoading(true)
         return signOut(auth).then(() => {
             toast.success('Log Out Successfully')
             navigate('/')
@@ -50,30 +55,14 @@ const UserContext = ({ children }) => {
 
     //05. Sign in or Register By Google 
     const google = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     //06. Sign in or Register by GitHub
     const github = () => {
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
-            .then((result) => {
-                // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-                const credential = GithubAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-
-                // The signed-in user info.
-                const user = result.user;
-                // ...
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential = GithubAuthProvider.credentialFromError(error);
-                // ...
-            });
     }
 
 
@@ -82,6 +71,7 @@ const UserContext = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            setLoading(false)
         });
         return () => unSubscribe();
     }, [])
@@ -96,7 +86,7 @@ const UserContext = ({ children }) => {
         Login,
         google,
         github,
-        
+        loading
 
     }
     return (

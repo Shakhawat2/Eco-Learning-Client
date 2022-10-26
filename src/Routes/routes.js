@@ -7,6 +7,7 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import SingleCourse from "../Pages/SingleCourse";
+import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -47,7 +48,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path : '/course/:id',
-                element : <SingleCourse></SingleCourse>
+                element : <PrivateRoute><SingleCourse></SingleCourse></PrivateRoute>
             },
         ] 
     }
