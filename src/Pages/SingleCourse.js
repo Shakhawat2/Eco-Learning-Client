@@ -1,16 +1,23 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 const SingleCourse = () => {
     const courseDetails = useLoaderData();
     const { id, name, img, description, fullAbbre } = courseDetails
     return (
-        <div className="mx-auto my-14 rounded-md shadow-md sm:w-96 dark:bg-gray-900 dark:text-gray-100">
+        <div ref={ref} className="mx-auto my-14 rounded-md shadow-md sm:w-96 dark:bg-gray-900 dark:text-gray-100">
             <div className="flex items-center justify-between p-3">
-                <h1 className='text-white'>{fullAbbre}</h1>
-                <button className='btn btn-secondary'>Download Pdf</button>
+                <h1  className='text-white'>{fullAbbre}</h1>
+                {/* <button onClick={toPdf} className='btn btn-secondary'>Download Pdf</button> */}
+                <Pdf targetRef={ref} filename={`${fullAbbre}.pdf`}>
+                    {({ toPdf }) => <button onClick={toPdf} className='btn btn-secondary'>Download Pdf</button>}
+                </Pdf>
+                
             </div>
-            <img src={img ? img : 'no image found'} alt="" className="object-cover object-center w-full h-72 dark:bg-gray-500" />
+            <img  src={img ? img : 'no image found'} alt="" className="object-cover object-center w-full h-72 dark:bg-gray-500" />
             <div className="p-3">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
@@ -37,7 +44,7 @@ const SingleCourse = () => {
                     </button>
                 </div>
                 <div className="flex flex-wrap items-center pt-3 pb-1">
-                    <p className='text-white'>{description}</p>
+                    <p  className='text-white'>{description}</p>
                 </div>
                 <div className="space-y-6">
                     <Link to={`/checkout/${id}`}>
