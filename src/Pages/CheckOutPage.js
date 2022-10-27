@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UserContext';
 import Swal from 'sweetalert2';
-
-// import 'sweetalert2/src/sweetalert2.scss'
 
 const CheckOutPage = () => {
     const { user } = useContext(AuthContext)
@@ -14,21 +12,16 @@ const CheckOutPage = () => {
     const yr = date.getFullYear();
     const mth = date.getMonth() + 1;
     const day = date.getDate();
-    const hr = date.getHours();
-    const minute = date.getMinutes()
+    const navigate = useNavigate();
 
     const handleCheckOut = () => {
-        // Swal.fire({
-        //     title: 'Error!',
-        //     text: 'Do you want to continue',
-        //     icon: 'error',
-        //     confirmButtonText: 'Cool'
-        // })
+        navigate("/courses")
         Swal.fire(
             'Good job!',
             'CheckOut Successful!!',
             'success'
         )
+        
     }
 
     return (
@@ -36,7 +29,7 @@ const CheckOutPage = () => {
             <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
                 <div className="flex items-center justify-between">
                     <span className="text-sm dark:text-gray-400">{`${day}-${mth}-${yr}`}</span>
-                    <a onClick={handleCheckOut} rel="noopener noreferrer" href="#" className="px-2 py-1 font-bold rounded dark:bg-violet-400 dark:text-gray-900">CheckOut</a>
+                    <button onClick={handleCheckOut} rel="noopener noreferrer"  className="px-2 py-1 font-bold rounded dark:bg-violet-400 dark:text-gray-900">CheckOut</button>
                 </div>
                 <div className="mt-3">
                     <a rel="noopener noreferrer" href="#" className="text-2xl font-bold hover:underline">{fullAbbre}</a>

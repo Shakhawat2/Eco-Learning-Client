@@ -6,7 +6,7 @@ import AllCourses from './AllCourses';
 const LeftCourses = ({allCourse}) => {
     const {user} = useContext(AuthContext)
     return (
-        <div className=" h-40 lg:h-screen p-3  w-screen  lg:w-60 dark:bg-black dark:text-gray-100">
+        <div className=" h-40 lg:h-full p-3  w-screen  lg:w-60 dark:bg-black dark:text-gray-100">
             {/* <div className="flex items-center p-2 space-x-4">
                 <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full dark:bg-gray-500" />
                 <div>

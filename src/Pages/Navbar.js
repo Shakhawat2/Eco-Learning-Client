@@ -237,45 +237,10 @@ const Navbar = () => {
                                                 Blog
                                             </NavLink>
                                         </li>
-                                        {/* <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li>
-                                        <li className=''>
-                                            <Link
-                                                to="/login"
-                                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn btn-secondary hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                                aria-label="Sign up"
-                                                title="Sign up"
-                                            >
-                                                Log In
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <div className="dropdown dropdown-end">
-                                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                                    <div className="w-10 rounded-full">
-                                                        <img src="https://placeimg.com/80/80/people" title={user?.displayName} />
-                                                    </div>
-                                                </label>
-                                                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                                                    <li>
-                                                        <a className="justify-between">
-                                                            Profile
-                                                            <span className="badge">New</span>
-                                                        </a>
-                                                    </li>
-                                                    <li><a>Settings</a></li>
-                                                    <button onClick={() => logOut(navigate)}><li>Logout</li></button>
-                                                </ul>
-                                            </div>
-                                        </li> */}
+
                                         <ul className="flex items-center justify-between">
-                                            {/* <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li> */}
-                                            <label for="Toggle1" className="cursor-pointer dark:text-gray-100">
-                                                <span className="relative">
-                                                    <input id="Toggle1" type="checkbox" className="hidden peer" />
-                                                    <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-black"></div>
-                                                    <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
-                                                </span>
-                                            </label>
+                                            <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li>
+
                                             {
                                                 user && user.uid
                                                     ?
