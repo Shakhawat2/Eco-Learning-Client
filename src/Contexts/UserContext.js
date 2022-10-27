@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
@@ -65,6 +65,19 @@ const UserContext = ({ children }) => {
         return signInWithPopup(auth, githubProvider)
     }
 
+    //07. reset password 
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
+            .then(() => {
+                toast('password reset email sent!')
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                toast.error(errorMessage)
+            });
+    }
+
 
     //on Auth Changed
 
@@ -86,7 +99,8 @@ const UserContext = ({ children }) => {
         Login,
         google,
         github,
-        loading
+        loading,
+        resetPassword
 
     }
     return (

@@ -80,7 +80,7 @@ const Navbar = () => {
                 </ul>
                 <ul className="flex items-center hidden space-x-4 lg:flex">
                     {/* <li className='mt-2'><input type="checkbox" className="toggle" defaultChecked /></li> */}
-                    <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                    <label htmlFor="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
                         {/* <span className='text-black'>White Mode</span> */}
                         <span className="relative">
                             <input id="Toggle1" type="checkbox" className="hidden peer" />

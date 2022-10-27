@@ -15,7 +15,7 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
+        
 
         //01. create account with email and password
         createAccount(email, password)
@@ -70,8 +70,8 @@ const Register = () => {
                     <input type="text" name="username" id="username" placeholder="Username" className="border border-2 w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
                 </div>
                 <div className="space-y-1 text-sm">
-                    <label htmlFor="Photo" className="block dark:text-gray-400">PhotoUrl</label>
-                    <input type="text" name="photo" id="Photo" placeholder="PhotoUrl" className="border border-2 w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                    <label htmlFor="photo" className="block dark:text-gray-400">PhotoUrl</label>
+                    <input type="text" name="photo" id="photo" placeholder="PhotoUrl" className="border border-2 w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label htmlFor="email" className="block dark:text-gray-400">Email</label>

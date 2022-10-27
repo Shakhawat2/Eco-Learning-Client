@@ -3,14 +3,15 @@ import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UserContext';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const Login = () => {
     const navigate = useNavigate();
     let location = useLocation();
-    const { Login, google, github } = useContext(AuthContext);
+    const { Login, google, github , resetPassword} = useContext(AuthContext);
 
     let from = location.state?.from?.pathname || "/";
-
+    const [em, setEmail] = useState("")
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -61,13 +62,13 @@ const Login = () => {
             <form onSubmit={handleLogin} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="email" className="block dark:text-gray-400">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Email" className="border border-2 w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                    <input onBlur={(e) => setEmail(e.target.value)} type="email" name="email" id="email" placeholder="Email" className="border border-2 w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label htmlFor="password" className="block dark:text-gray-400">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password" className="border border-2 w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                     <div className="flex justify-end text-xs dark:text-gray-400">
-                        <a rel="noopener noreferrer" href="#">Forgot Password?</a>
+                        <a onClick={() => resetPassword(em)} rel="noopener noreferrer" href="#">Forgot Password?</a>
                     </div>
                 </div>
                 <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign in</button>
